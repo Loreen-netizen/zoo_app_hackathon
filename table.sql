@@ -21,7 +21,7 @@ Create Table progress (
     id serial primary key,
     user_id int,
      motion_status text not null,
-      level__act_id int,
+      level_act_id int,
      foreign key (level_act_id) references levels(id),
        foreign key (user_id) references users(id)
   
