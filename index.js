@@ -1,7 +1,7 @@
 const express = require('express');
 var cors = require('cors')
-// var app = express()
- 
+    // var app = express()
+
 const ZooFact = require("./zoo_functions");
 const ApiFact = require("./api/zooApi");
 const session = require('express-session');
@@ -37,26 +37,22 @@ app.use(session({
 }));
 
 app.use(flash());
-app.get('/addFlash', async function (req, res) {
+app.get('/addFlash', async function(req, res) {
     req.flash('info', 'Flash Message Added');
     res.redirect('/');
 });
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
     // req.flash('info', 'Welcome');
     res.render('index1')
 });
 
 
-
-
-
-
-// app.get('/api/user', zooApi.storeUser)
+app.get('/api/user', zooApi.storeUser)
 
 
 var portNumber = process.env.PORT || 3001;
 
 //start everything up
-app.listen(portNumber, function () {
+app.listen(portNumber, function() {
     console.log('Starting Shoes on', portNumber);
 });
