@@ -54,7 +54,7 @@ app.get('/', function (req, res) {
 // app.get('/api/user', zooApi.storeUser)
 
 
-var portNumber = process.env.PORT || 3000;
+var portNumber = process.env.PORT || 3001;
 
 //start everything up
 app.listen(portNumber, function () {
