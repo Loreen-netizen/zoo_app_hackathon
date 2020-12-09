@@ -47,7 +47,9 @@ app.get('/', function(req, res) {
 });
 
 
-app.get('/api/user', zooApi.storeUser)
+app.post('/api/user', zooApi.storeUser)
+
+app.get('/api/user', zooApi.greetUser)
 
 
 var portNumber = process.env.PORT || 3001;
