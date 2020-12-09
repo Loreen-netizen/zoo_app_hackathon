@@ -21,25 +21,27 @@ body, html {
     color: red;
     
   }
-  h2{
+  /* h2{
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       font-size: 3vw;
       color: yellow;
       
-  }
+  } */
   
 
   .insert_start{
+      padding: 5%;
     align-content: center;
     text-align: center;
   }
   .model{
     margin: auto;
-    display: inline-block;
+  float: right;
   }
 .videoClip{
   margin: auto;
-  display:;
+  display:inline-block;
+
 }
   .startBtn{
     margin: auto;
@@ -47,9 +49,9 @@ body, html {
   .button {
     display: inline-block;
     border-radius: 4px;
-    background-color: #f4511e;
+    background-color: yellow;
     border: none;
-    color: #FFFFFF;
+    color:blue;
     text-align: center;
     font-size: 28px;
     padding: 20px;
@@ -57,6 +59,7 @@ body, html {
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
+    /* border-radius: 25%; */
     
   }
   
