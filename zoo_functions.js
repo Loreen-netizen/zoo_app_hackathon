@@ -12,7 +12,7 @@ module.exports = function zooFact(pool) {
         INSERT INTO users 
         (user_name) 
         VALUES ($1)`, [name])
-        return insertUserQuery
+
     }
 
     function getUserId(name) {
