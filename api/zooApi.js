@@ -1,4 +1,5 @@
 module.exports = function(zooFact) {
+    
     async function storeUser(req, res) {
         try {
             let name = req.body.name
@@ -15,9 +16,10 @@ module.exports = function(zooFact) {
             });
         }
     };
+
     async function greetUser(req, res) {
         try {
-            let name = req.body.name
+            let name = req.params.name
             let greetUser = await zooFact.greetUser(name);
 
             res.json({
