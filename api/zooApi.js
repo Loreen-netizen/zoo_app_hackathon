@@ -3,7 +3,23 @@ module.exports = function(zooFact) {
         try {
             let name = req.body.name
             let storeUser = await zooFact.storeUser(name);
-            let greetUser = await zooFact.greetUser(name)
+
+            res.json({
+                status: 'success',
+                data: storeUser
+            });
+        } catch (err) {
+            res.json({
+                status: "error",
+                error: err.stack
+            });
+        }
+    };
+    async function greetUser(req, res) {
+        try {
+            let name = req.body.name
+            let greetUser = await zooFact.greetUser(name);
+
             res.json({
                 status: 'success',
                 data: greetUser
@@ -16,6 +32,7 @@ module.exports = function(zooFact) {
         }
     };
     return {
-        storeUser
+        storeUser,
+        greetUser
     }
 }
