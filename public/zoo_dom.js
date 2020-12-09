@@ -1,9 +1,9 @@
-let nameElem = document.QuerySelector(".name");
-let greetElem = document.QuerySelector(".greet");
-let greetMe = document.QuerySelector(".greetMe");
+let nameElem = document.querySelector(".name");
+let greetElem = document.querySelector(".greet");
+let greetMe = document.querySelector(".greetMe");
 
-let greetTemplateText = Handlebars.compile(greetElem.innerHTML);
-let greetTemplate = compileTemplate(greetTemplateText);
+let greetTemplateText = document.querySelector('.greetTemplateText').innerHTML;
+let greetTemplate = Handlebars.compile(greetTemplateText);
 
 axios
     .get('/api/user')
