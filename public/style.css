@@ -31,7 +31,14 @@ body, html {
     align-content: center;
     text-align: center;
   }
-
+  .model{
+    margin: auto;
+    display: inline-block;
+  }
+.videoClip{
+  margin: auto;
+  display:;
+}
   .startBtn{
     margin: auto;
   }
