@@ -7,26 +7,26 @@ module.exports = function zooFact(pool) {
 
     }
 
-    function storeUser(name) {
-        let insertUserQuery = (`
+    async function storeUser(name) {
+        let insertUserQuery = await pool.query(`
         INSERT INTO users 
         (user_name) 
         VALUES ($1)`, [name])
 
     }
 
-    function getUserId(name) {
-        let getUserIdQuery = (`SELECT id FROM users WHERE user_name = ($1)`, [name])
+    async function getUserId(name) {
+        let getUserIdQuery = await pool.query(`SELECT id FROM users WHERE user_name = ($1)`, [name])
         return getUserIdQuery.rows
     }
 
-    function getUserLevel(name) {
+    async function getUserLevel(name) {
         let userId = getUserId(name)
-        let getUserLevel = (`SELECT level_act_id FROM progress WHERE user_id = $1`, [userId])
+        let getUserLevel = await pool.query(`SELECT level_act_id FROM progress WHERE user_id = $1`, [userId])
     }
 
-    function getVideoUrl(level_id) {
-        let getVideoUrlQuery = (`SELECT video_url 
+    async function getVideoUrl(level_id) {
+        let getVideoUrlQuery = await pool.query(`SELECT video_url 
     FROM level_acts WHERE motion = $1`, [level_id])
         return getVideoUrlQuery.rows;
     }

@@ -28,18 +28,22 @@ describe('The storeUser function', function(){
         let zoo = zooFact(pool)
 
         await zoo.storeUser('Bantu')
-        assert.equal('Bantu', zoo.storeUser('Bantu')); 
+        assert.equal('Bantu', await zoo.storeUser('Bantu')); 
     });
 
     it('should be able to insert the name Yeu in the table', async function(){
         let zoo = zooFact(pool)
         await zoo.storeUser('Yeu')
-        assert.equal('Yeu', zoo.storeUser('Yeu')); 
+        assert.equal('Yeu', await zoo.storeUser('Yeu')); 
     });
 });
 
 describe('The getUserId function', function(){
-    it('should be able to return Loreen ID', function)
+    it('should be able to return Loreen ID', async function(){
+        let zoo = zooFact(pool)
+        await zoo.storeUser('Loreen')
+        assert.equal(1, await zoo.getUserId('Loreen'))
+    })
 })
 
 // after(function() {
