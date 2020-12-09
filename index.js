@@ -1,5 +1,7 @@
 const express = require('express');
-
+var cors = require('cors')
+// var app = express()
+ 
 const ZooFact = require("./zoo_functions");
 const ApiFact = require("./api/zooApi");
 const session = require('express-session');
@@ -10,6 +12,7 @@ var exphbs = require('express-handlebars');
 const pg = require('pg')
 const Pool = pg.Pool;
 const app = express();
+app.use(cors())
 
 // const connectionString = process.env.DATABASE_URL || 'postgresql://bantu:s0ty@t0b@n2@localhost:5432/my_shoes_db';
 const pool = new Pool({
