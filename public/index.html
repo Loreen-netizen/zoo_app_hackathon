@@ -14,17 +14,38 @@
 
 <body>
     <div class="container">
-        <h1><b>DANCING ZOO</b> </h1>
+        <h1>DANCING ZOO </h1>
         <div class="insert_start">
-            <h2><b>Name:</b></h2>
+            Name:
             <br>
-            <input type="text" placeholder="enter name here" value="">
+            <input type="text" class="username" placeholder="enter name here">
             <br>
-            <a href="second.html"><button type="submit" class="button"><span>Start</span></button></a>
+            <button class="startBtn">Start</button>
         </div>
 
 
     </div>
+
+    </div>
+    </div>
+
+    <div class="zooName zoo"></div>
+
+
+    <div>Teachable Machine Pose Model</div>
+    <button type="button" onclick="init()">Start</button>
+    <div><canvas id="canvas"></canvas></div>
+    <div id="label-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+
+    <script src="zoo_tm_model.js"></script>
+    <script src="zoo_dom.js"></script>
+
+
+    </div>
+
 </body>
 
 </html>

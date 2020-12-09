@@ -1,5 +1,7 @@
-let nameElem = document.querySelector(".name");
-let buttonElem = document.getElementById(".button");
+let nameElem = document.querySelector(".username");
+
+let startBtn = document.querySelector(".startBtn");
+
 let greetElem = document.querySelector(".greet");
 let greetMe = document.querySelector(".greetMe");
 
@@ -19,11 +21,10 @@ function action() {
         });
 }
 
-
-
-
-
-
-
-buttonElem.addEventListener("click", action);
 // buttonElem.addEventListener("click", action);
+
+
+
+startBtn.addEventListener("click", function() {
+    alert(nameElem.value);
+});
