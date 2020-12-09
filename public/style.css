@@ -27,9 +27,11 @@ body, html {
       color: yellow;
       
   } */
-  
+  .hidden{
+    display: none;
+  }
 
-  .insert_start{
+  .insertStart{
       padding: 5%;
     align-content: center;
     text-align: center;
@@ -41,6 +43,9 @@ body, html {
 .videoClip{
   margin: auto;
   display:inline-block;
+
+}
+.modelPage{
 
 }
   .startBtn{

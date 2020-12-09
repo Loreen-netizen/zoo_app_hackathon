@@ -14,9 +14,9 @@ const Pool = pg.Pool;
 const app = express();
 app.use(cors())
 
-// const connectionString = process.env.DATABASE_URL || 'postgresql://bantu:s0ty@t0b@n2@localhost:5432/my_shoes_db';
+const connectionString = process.env.DATABASE_URL || 'postgresql://bantu:s0ty@t0b@n2@localhost:5432/zoo_app';
 const pool = new Pool({
-    // connectionString
+    connectionString
 });
 
 const zooFact = ZooFact(pool);
@@ -49,10 +49,10 @@ app.get('/', function(req, res) {
 
 app.post('/api/user', zooApi.storeUser)
 
-app.get('/api/user', zooApi.greetUser)
+app.get('/api/user/:name', zooApi.greetUser)
 
 
-var portNumber = process.env.PORT || 3000;
+var portNumber = process.env.PORT || 3001;
 
 //start everything up
 app.listen(portNumber, function() {
