@@ -26,3 +26,4 @@ Create Table progress (
        foreign key (user_id) references users(id)
   
 );
+
