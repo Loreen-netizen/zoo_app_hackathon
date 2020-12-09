@@ -1,4 +1,12 @@
 module.exports = function zooFact(pool) {
+
+    function greetUser(name) {
+        let greet = "Hello " + name + " !";
+        console.log({ greet })
+        return greet
+
+    }
+
     function storeUser(name) {
         let insertUserQuery = (`
         INSERT INTO users 
@@ -14,8 +22,9 @@ module.exports = function zooFact(pool) {
     }
 
 
-    return {
 
+    return {
+        greetUser,
         storeUser,
         getVideoUrl
     }
