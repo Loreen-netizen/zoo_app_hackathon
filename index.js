@@ -52,9 +52,9 @@ app.post('/api/user', zooApi.storeUser)
 app.get('/api/user', zooApi.greetUser)
 
 
-var portNumber = process.env.PORT || 3001;
+var portNumber = process.env.PORT || 3000;
 
 //start everything up
 app.listen(portNumber, function() {
-    console.log('Starting Shoes on', portNumber);
+    console.log('Starting Dancing Zoo on', portNumber);
 });

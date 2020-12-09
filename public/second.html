@@ -12,14 +12,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-
+    <script src="text/x-script" class="greetTemplateText">
+        {{greetMe}} 
+    </script>
 </head>
 
 <body>
     <div class="container">
 
         <h1>DANCING ZOO </h1>
-        <h2 class="greet">
+        <h2 class= "greetMe"></h2>
 
 
             <!-- <p>The .active class animates the progress bar:</p>  -->
@@ -35,6 +37,7 @@
 
     <div class="zooName zoo"></div>
 
+    
 
     <div>Teachable Machine Pose Model</div>
     <button type="button" onclick="init()">Start</button>

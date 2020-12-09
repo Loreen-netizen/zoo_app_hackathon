@@ -14,14 +14,14 @@ function action() {
         .then(function(results) {
             let response = results.data;
             let data = response.data;
-            greetMe.innerHTML = greetTemplateText({
+            greetMe.innerHTML = greetTemplate({
                 greetMe: data
             });
 
         });
 }
 
-// buttonElem.addEventListener("click", action);
+startBtn.addEventListener("click", action);
 
 
 
