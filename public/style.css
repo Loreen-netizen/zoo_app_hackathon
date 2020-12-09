@@ -2,7 +2,7 @@ body, html {
     height: 100%;
   }
   
-  .container{
+  body{
     /* The image used */
     background-image: url("zcXe4o6cB.jpg");
   
@@ -15,5 +15,9 @@ body, html {
     background-size: cover;
   }
   h1 {
-    text-shadow: 2px 2px red;
+    font-family: "Times New Roman", Times, serif;
+    font-size:6vw; 
+    text-align: center;
+    color: red;
+    
   }
