@@ -15,7 +15,7 @@ function action() {
             let response = results.data;
             let data = response.data;
             greetMe.innerHTML = greetTemplateText({
-                greet: data
+                greetMe: data
             });
 
         });
