@@ -36,12 +36,12 @@ body, html {
   }
   .model{
     margin: auto;
-    display: inline-block;
+  float: right;
   }
 .videoClip{
   margin: auto;
-  display: inline;
-  float: left;
+  display:inline-block;
+
 }
   .startBtn{
     margin: auto;
