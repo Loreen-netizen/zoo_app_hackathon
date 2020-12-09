@@ -1,20 +1,20 @@
-module.exports = function (zooFact){
+module.exports = function(zooFact) {
     async function storeUser(req, res) {
         try {
-            let user = await zooFact.storeUser();
+            let name = req.body.name
+            let user = await zooFact.storeUser(name);
             res.json({
                 status: 'success',
                 data: user
             });
-        }
-        catch (err) {
+        } catch (err) {
             res.json({
                 status: "error",
                 error: err.stack
             });
         }
     };
-    return{
+    return {
         storeUser
     }
 }
