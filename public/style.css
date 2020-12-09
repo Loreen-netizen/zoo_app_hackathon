@@ -1,0 +1,19 @@
+body, html {
+    height: 100%;
+  }
+  
+  .container{
+    /* The image used */
+    background-image: url("zcXe4o6cB.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  h1 {
+    text-shadow: 2px 2px red;
+  }
