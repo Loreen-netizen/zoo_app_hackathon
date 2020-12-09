@@ -38,6 +38,10 @@ describe('The storeUser function', function(){
     });
 });
 
+describe('The getUserId function', function(){
+    it('should be able to return Loreen ID', function)
+})
+
 // after(function() {
 //     pool.end();
 // });
