@@ -42,14 +42,12 @@ h1 {
 float: right;
 height: 100%;
 }
- /* .videoClip{
+ .videoClip{
  margin-top: 5%; 
 display:inline-block;
 
-}  */
-.modelPage{
+} 
 
-}
 .startBtn{
   margin: auto;
 }
