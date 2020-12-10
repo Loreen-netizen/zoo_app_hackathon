@@ -17,7 +17,7 @@ let videoClipElem = document.querySelector(".videoClip")
 let videoTemplateText = document.querySelector('.videoTemplateText').innerHTML;
 let videoTemplate = Handlebars.compile(videoTemplateText);
 
-const motions = ["swim", "slither"];
+const motions = ["stomp", "waddle", "swim", "slither"];
 
 let motionCount = 0;
 

@@ -19,6 +19,7 @@ h1 {
   font-size:6vw;
   text-align: center;
   color: red;
+  text-shadow: 2px 2px 5px yellow;
  
 }
 /* h2{
@@ -41,11 +42,11 @@ h1 {
 float: right;
 height: 100%;
 }
-.videoClip{
-margin-top: 5%;
+ /* .videoClip{
+ margin-top: 5%; 
 display:inline-block;
 
-}
+}  */
 .modelPage{
 
 }
