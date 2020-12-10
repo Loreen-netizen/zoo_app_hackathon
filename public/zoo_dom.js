@@ -8,6 +8,11 @@ let startBtn = document.querySelector(".startBtn");
 let greetElem = document.querySelector(".greet");
 let greetMe = document.querySelector(".greetMe");
 
+let progressElem = document.querySelector(".progress");
+let progressTemplateText = document.querySelector('.progressTemplateText').innerHTML;
+let progressTemplate = Handlebars.compile(progressTemplateText);
+
+
 let greetTemplateText = document.querySelector('.greetTemplateText').innerHTML;
 let greetTemplate = Handlebars.compile(greetTemplateText);
 
@@ -68,8 +73,22 @@ function showMotion() {
       const message = "Show me how to " + motions[motionCount];
       showVideo();
       motionCount++;
+    //   if(motionCount === 3){
+
+          progressElem.innerHTML = progressTemplate({
+            orangePercentage: motionCount * 25
+        })
+    //   }
       return message;
     }
+    console.log(motionCount);
+// if(motionCount = 4){
+
+    progressElem.innerHTML = progressTemplate({
+        greenPercentage: motionCount * 25
+    })
+// }
+    
      return "You perfected all the moves";
   
 }

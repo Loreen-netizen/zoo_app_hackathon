@@ -55,7 +55,7 @@ async function predict() {
 
     // finally draw the poses
     drawPose(pose);
-    console.log({pose})
+    // console.log({pose})
 }
 
 function drawPose(pose) {
