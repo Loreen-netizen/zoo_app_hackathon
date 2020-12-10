@@ -53,7 +53,7 @@ app.get('/api/user/:name', zooApi.greetUser)
 
 app.post('/api/motion', zooApi.storeUserMotion)
 
-var portNumber = process.env.PORT || 3000;
+var portNumber = process.env.PORT || 3001;
 
 //start everything up
 app.listen(portNumber, function() {

@@ -33,8 +33,8 @@ var jj=0;
 
 var increase = Math.PI /90+wid;
 var example = document.getElementById("example")
-example.width = window.innerWidth;
-example.height = window.innerHeight-20;
+// example.width = window.innerWidth;
+// example.height = window.innerHeight-20;
 var withi = window.innerWidth/5
 	for ( i = 0; i <=withi; i ++ ) 
 	{
@@ -50,10 +50,10 @@ var withi = window.innerWidth/5
 						
 		myAarray[i].beginPath();
 		myAarray[i].lineWidth="5";
-		myAarray[i].strokeStyle="white"; // Green path
+		// myAarray[i].strokeStyle="white"; // Green path
 		myAarray[i].moveTo(0+jj,0);
 		myAarray[i].lineTo(jj,pp+100);
-		myAarray[i].stroke(); // Draw it
+		// myAarray[i].stroke(); // Draw it
 		jj+=5;
 		xx+=0.01;
 		if(i==0 && xx < withi*5)
