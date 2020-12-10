@@ -14,7 +14,7 @@ const Pool = pg.Pool;
 const app = express();
 app.use(cors())
 // 'postgresql://loreen:pg123@localhost:5432/zoo_app';
-const connectionString = process.env.DATABASE_URL || 'postgresql://loreen:pg123@localhost:5432/zoo_app';
+const connectionString = process.env.DATABASE_URL || 'postgresql://bantu:s0ty@t0b@n2@localhost:5432/zoo_app';
 const pool = new Pool({
     connectionString
 });
@@ -51,8 +51,9 @@ app.post('/api/user', zooApi.storeUser)
 
 app.get('/api/user/:name', zooApi.greetUser)
 
+app.post('/api/motion', zooApi.storeUserMotion)
 
-var portNumber = process.env.PORT || 3005;
+var portNumber = process.env.PORT || 3000;
 
 //start everything up
 app.listen(portNumber, function() {

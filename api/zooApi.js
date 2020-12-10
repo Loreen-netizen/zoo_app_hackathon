@@ -33,8 +33,29 @@ module.exports = function(zooFact) {
             });
         }
     };
+
+    async function storeUserMotion(req, res) {
+        try {
+            let motion = req.body.motion
+            
+            let userMotion = await zooFact.storeUserMotion(motion);
+
+            res.json({
+                status: 'success',
+                data: userMotion
+            });
+        } catch (err) {
+            res.json({
+                status: "error",
+                error: err.stack
+            });
+        }
+    };
+
+    
     return {
         storeUser,
-        greetUser
+        greetUser,
+        storeUserMotion
     }
 }
