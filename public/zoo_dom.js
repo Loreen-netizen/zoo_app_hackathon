@@ -22,19 +22,17 @@ let videoClipElem = document.querySelector(".videoClip")
 let videoTemplateText = document.querySelector('.videoTemplateText').innerHTML;
 let videoTemplate = Handlebars.compile(videoTemplateText);
 
-const motions = ["stomp", "waddle", "swim", "slither"];
+const motions = ["slither", "swim", "stomp", "waddle"];
 
 let motionCount = 0;
 
+let currentMotion;
 
 function showVideo() {
     videoClipElem.innerHTML = videoTemplate({
         motion : motions[motionCount]
     })
-    // motionCount++;
 }
-
-
 
 function greetUser(name) {
     axios
@@ -69,35 +67,36 @@ startBtn.addEventListener("click", function() {
 const bell = new Audio("https://raw.githubusercontent.com/codex-academy/chocolate-app/main/public/audio/bell.mp3")
 
 const storeUserMotion = _.throttle(function (motion){
-    
-    axios
+    return axios
         .post("/api/motion", {motion})
         .then(function(result){
             
-            
-            console.log(result);
             bell.play();
+
+            console.log(result);
 
         }).catch(err => console.log(err))
 }, 5000);
 
-
-
-
 function showMotion() {
     if (motionCount < motions.length) {
-      const message = "Show me how to " + motions[motionCount];
-      showVideo();
-      motionCount++;
-    //   if(motionCount === 3){
+        currentMotion = motions[motionCount]
+        const message = "Show me how to " + currentMotion;
+        question.innerHTML = message;
+        showVideo();
+        motionCount++;
+        //   if(motionCount === 3){
 
           progressElem.innerHTML = progressTemplate({
             orangePercentage: motionCount * 25
         })
     //   }
       return message;
+    } else {
+        currentMotion = "";
+        question.innerHTML = "You moved well!";
+        // play trumpet
     }
-    console.log(motionCount);
 // if(motionCount = 4){
 
     progressElem.innerHTML = progressTemplate({

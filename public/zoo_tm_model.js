@@ -48,7 +48,7 @@ async function init() {
 // 		const prediction = await model.predict(webcam.canvas);
 
 // 		let highestProb = 0;
-// 		let chocName = "";
+// 		let motion = "";
 
 // 		prediction.forEach(function(pred){
 //             if (pred.probability > highestProb) {
@@ -90,23 +90,54 @@ async function predict() {
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
 
-    for (let i = 0; i < maxPredictions; i++) {
-        const classPrediction =
-            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        // labelContainer.childNodes[i].innerHTML = classPrediction;
+    if (currentMotion !== "") {
+        let highestProb = 0;
+        let motion = "";
 
-        const pred = prediction[i].probability.toFixed(2);
+        prediction.forEach(function (pred) {
+            if (pred.probability > highestProb) {
+                highestProb = pred.probability;
+                motion = pred.className;
+            }
+        });
 
-        const pc = prediction[i].className;
-        console.log({ pc, pred });
+        if (highestProb == 1 && currentMotion === motion) {
+            // bell.play();
+            console.log({
+                highestProb,
+                motion,
+                currentMotion
+            });
 
-        if (pc !== 'nothing' && Number(pred) == 1) {
-            
-            storeUserMotion(pc)
-
+            storeUserMotion(motion)
+                .then(function () {
+                    showMotion();
+                })
+        } else {
+            // error code here
         }
+    } 
 
-    }
+
+
+
+    // for (let i = 0; i < maxPredictions; i++) {
+    //     const classPrediction =
+    //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+    //     // labelContainer.childNodes[i].innerHTML = classPrediction;
+
+    //     const pred = prediction[i].probability.toFixed(2);
+
+    //     const pc = prediction[i].className;
+    //     console.log({ pc, pred });
+
+    //     if (pc !== 'nothing' && Number(pred) == 1) {
+
+    //         storeUserMotion(pc)
+
+    //     }
+
+    // }
 
     // finally draw the poses
     drawPose(pose)
