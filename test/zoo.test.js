@@ -19,7 +19,7 @@ describe('The greetUser function', function(){
     it('should be able to greet Chuma', async function(){
         let zoo = zooFact(pool)
         await zoo.storeUser('chuma')
-        assert.equal('Hello Chuma !', zoo.greetUser('Chuma'))
+        assert.equal('Hello Chuma !', await zoo.greetUser('Chuma'))
     })
 });
 
@@ -55,8 +55,8 @@ describe('The getUserLevel function', function(){
     let zoo = zooFact(pool)
 
     //let user = await zoo.storeUser('Sibo') 
-    let userId = await pool.query(`SELECT id FROM users WHERE user_name = 'Yeu'`)
-    assert.deepEqual(userId, await zoo.getUserLevel())
+    let user = await pool.query(`SELECT id FROM users WHERE user_name = Loreen`)
+    assert.equal(user, await zoo.getUserLevel('1'))
     })
 })
 

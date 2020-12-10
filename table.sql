@@ -11,7 +11,6 @@ Create Table levels (
 Create Table level_Acts (
     id serial primary key,
      motion text not null,
-      video_url text not null,
       level_id int,
      foreign key (level_id) references levels(level_number)
 );
@@ -25,21 +24,23 @@ Create Table progress (
        foreign key (user_id) references users(id)
   
 );
+INSERT INTO levels (level_number, level_name) values (1,'Stomp');
 
-INSERT INTO levels (level_number, level_name) values (1,'Polar Bear');
+INSERT INTO levels (level_number, level_name) values (2,'Waddle');
 
-INSERT INTO levels (level_number, level_name) values (2, 'Snake');
+INSERT INTO levels (level_number, level_name) values (3, 'Slither');
+
+INSERT INTO levels (level_number, level_name) values (4,'Swim');
 
 
-
-
- INSERT INTO  level_Acts
- (motion, video_url,level_id) 
- VALUES ('swim', 'https://www.youtube.com/watch?v=goGXfSHoGvk', 1);
 
  INSERT INTO  level_Acts
- (motion, video_url,level_id) 
- VALUES ('slither', 'https://www.youtube.com/watch?v=h5YhclqjW48', 2);
+ (motion,level_id) 
+ VALUES ('swim', 1);
 
- INSERT INTO  level_Acts (motion, video_url,level_id) 
- VALUES ('nothing', '', null);
+ INSERT INTO  level_Acts
+ (motion,level_id) 
+ VALUES ('slither', 2);
+
+ INSERT INTO  level_Acts (motion,level_id) 
+ VALUES ('nothing', null);

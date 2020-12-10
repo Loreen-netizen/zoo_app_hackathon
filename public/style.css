@@ -1,95 +1,237 @@
 body, html {
-    height: 100%;
-  }
-  
-  body{
-    /* The image used */
-    background-image: url("zcXe4o6cB.jpg");
-  
-    /* Full height */
-    height: 100%;
-  
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  h1 {
-    font-family: "Times New Roman", Times, serif;
-    font-size:6vw; 
-    text-align: center;
-    color: red;
-    
-  }
-  /* h2{
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      font-size: 3vw;
-      color: yellow;
-      
-  } */
-  .hidden{
-    display: none;
-  }
+  height: 100%;
+}
 
-  .insertStart{
-      padding: 5%;
-    align-content: center;
-    text-align: center;
-  }
-  .model{
-    margin: auto;
-  float: right;
-  }
+body{
+  /* The image used */
+  background-image: url("zcXe4o6cB.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size:6vw;
+  text-align: center;
+  color: red;
+ 
+}
+/* h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3vw;
+    color: yellow;
+   
+} */
+.hidden{
+  display: none;
+}
+
+.insertStart{
+    padding: 5%;
+  align-content: center;
+  text-align: center;
+}
+.model{
+  margin-top: 5%;
+float: right;
+height: 100%;
+}
 .videoClip{
-  margin: auto;
-  display:inline-block;
+margin-top: 5%;
+display:inline-block;
 
 }
 .modelPage{
 
 }
-  .startBtn{
-    margin: auto;
-  }
-  .button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: yellow;
-    border: none;
-    color:blue;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    /* border-radius: 25%; */
-    
-  }
-  
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .button:start span {
-    padding-right: 25px;
-  }
-  
-  .button:start span:after {
-    opacity: 1;
-    right: 0;
-  }
-  
+.startBtn{
+  margin: auto;
+}
+.startBtn {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: yellow;
+  border: none;
+  color:blue;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 100%;
+  margin-top: 2em;
+ 
+}
+
+.startBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.startBtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+/* .btn{
+  margin: auto;
+} */
+.btn {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: purple;
+  border: none;
+  color: yellow;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+   margin: 5px;
+  border-radius: 100%;
+  padding: 0.8em;
+  /* margin-top: 2em; */
+
+ 
+}
+
+.btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+
+
+/* .btnRestart {
+  margin: auto;
+} */
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color:blue;
+  border: none;
+  color: yellow;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  border-radius: 100%;
+  margin-top: 2em;
+ 
+}
+
+.button  span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btnRestart span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+
+.btnRestart  {
+  display: inline-block;
+  border-radius: 4px;
+  background-color:blue;
+  border: none;
+  color: yellow;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  border-radius: 100%;
+  margin-top: 2em;
+ 
+}
+
+.btnRestart  span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btnRestart span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+
+
+
+.button  {
+  display: inline-block;
+  border-radius: 4px;
+  background-color:yellow;
+  border: none;
+  color: blue;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+  border-radius: 100%;
+  margin-top: 2em;
+ 
+}
+
+.button  span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
