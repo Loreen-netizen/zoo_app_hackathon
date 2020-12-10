@@ -66,6 +66,22 @@ startBtn.addEventListener("click", function() {
         }) 
 });
 
+const bell = new Audio("https://raw.githubusercontent.com/codex-academy/chocolate-app/main/public/audio/bell.mp3")
+
+const storeUserMotion = _.throttle(function (motion){
+    
+    axios
+        .post("/api/motion", {motion})
+        .then(function(result){
+            
+            
+            console.log(result);
+            bell.play();
+
+        }).catch(err => console.log(err))
+}, 5000);
+
+
 
 
 function showMotion() {
