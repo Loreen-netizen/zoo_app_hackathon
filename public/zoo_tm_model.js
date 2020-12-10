@@ -2,8 +2,7 @@
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
 
 // the link to your model provided by Teachable Machine export panel
-
-const URL = "https://teachablemachine.withgoogle.com/models/Wp2PY5Wu3/";
+const URL = "https://teachablemachine.withgoogle.com/models/5ZC1z7tHz/";
 let model, webcam, ctx, labelContainer, maxPredictions;
 
 async function init() {
@@ -26,8 +25,7 @@ async function init() {
 
     // append/get elements to the DOM
     const canvas = document.getElementById("canvas");
-    canvas.width = size;
-    canvas.height = size;
+    canvas.width = size; canvas.height = size;
     ctx = canvas.getContext("2d");
     labelContainer = document.getElementById("label-container");
     for (let i = 0; i < maxPredictions; i++) { // and class labels
@@ -44,10 +42,7 @@ async function loop(timestamp) {
 async function predict() {
     // Prediction #1: run input through posenet
     // estimatePose can take in an image, video or canvas html element
-    const {
-        pose,
-        posenetOutput
-    } = await model.estimatePose(webcam.canvas);
+    const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
 
@@ -55,10 +50,12 @@ async function predict() {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         labelContainer.childNodes[i].innerHTML = classPrediction;
+       
     }
 
     // finally draw the poses
     drawPose(pose);
+    console.log({pose})
 }
 
 function drawPose(pose) {
@@ -72,3 +69,4 @@ function drawPose(pose) {
         }
     }
 }
+
