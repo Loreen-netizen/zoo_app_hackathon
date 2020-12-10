@@ -22,6 +22,7 @@ module.exports = function zooFact(pool) {
         let userId = getUserId(name)
         let getUserLevel = await pool.query(`SELECT level_act_id FROM progress WHERE user_id = $1`, [userId])
         return getUserLevel
+
     }
 
     async function getVideoUrl(level_id) {
