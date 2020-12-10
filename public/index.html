@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,93 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-    <body>
-        <div class="container">
-          <h1><b>DANCING ZOO</b> </h1>
-          <div class="insert_start">
-             <h2><b>Name:</b></h2> 
-              <br>
-            <input type="text" placeholder="enter name here" value="">
-            <br>
-            <a href="second.html"><button type="submit" class="button"><span>Start</span></button></a>
-          </div>
 
-  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"
+        integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"
+        integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww=="
+        crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/x-script" class="greetTemplateText">
+        {{greetMe}} 
+    </script>    
+    <script type="text/x-script" class="progressTemplateText">
+        <div class="progress-bar progress-bar-warning " role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                    aria-valuemax="100" style="width:{{orangePercentage}}%" style="height:35px">
+                    ALMOST THERE!
+                </div>
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{greenPercentage}}%" style="height:35px">
+                    GOOD!
+                </div> 
+    </script>
+    <script type="text/x-script" class="videoTemplateText">
+        <div class="videoClip">
+            <video width="420" height="315" controls>
+                <source src="/videos/{{motion}}.mp4" type="video/mp4">
+            </video>
+            
     </div>
+
+    </script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>DANCING ZOO </h1>
+        <div class="insertStart">
+
+            <input type="text" class="username" placeholder="enter name here">
+            <br>
+            <button class="startBtn">Start</button>
+        </div>
+        <br>
+        <div class="modelPage hidden">
+
+            <div class="greetMe"></div>
+            <br>
+
+            <div class="progress progress-striped active" style="height:35px">
+                <!-- <div class="progress-bar progress-bar-warning " role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                    aria-valuemax="100" style="width:100%" style="height:35px">
+                    ALMOST THERE!
+                </div>
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width:0%" style="height:35px">
+                    GOOD!
+                </div> -->
+            </div>
+
+
+            <div class="videoClip">
+                    <!-- <video width="420" height="315" controls>
+                        <source src="/videos/swim.mp4" type="video/mp4">
+                    </video> -->
+            </div>
+
+
+            <div class="model">Teachable Machine Pose Model
+                <button type="button" onclick="init()">Start</button>
+                <div><canvas id="canvas"></canvas></div>
+                <div id="label-container"></div>
+            </div>
+            <div class="question" ></div>
+  <button class="btn" >Next</button>
+  
+  <button class="btnRestart" >Restart</button>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+
+    <script src="zoo_tm_model.js"></script>
+    <script src="zoo_dom.js"></script>
 </body>
 
 </html>

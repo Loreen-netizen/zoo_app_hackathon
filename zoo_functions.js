@@ -1,17 +1,15 @@
 module.exports = function zooFact(pool) {
 
-    function greetUser(name) {
+    async function greetUser(name) {
         let greet = "Hello " + name + " !";
         console.log({ greet })
         return greet
-
     }
 
     async function storeUser(name) {
-        let insertUserQuery = await pool.query(`
-        INSERT INTO users 
-        (user_name) 
-        VALUES ($1)`, [name])
+
+        let insertUserQuery = `INSERT INTO users (user_name) VALUES ($1)`;
+        await pool.query(insertUserQuery, [name])
 
     }
 
@@ -23,6 +21,8 @@ module.exports = function zooFact(pool) {
     async function getUserLevel(name) {
         let userId = getUserId(name)
         let getUserLevel = await pool.query(`SELECT level_act_id FROM progress WHERE user_id = $1`, [userId])
+        return getUserLevel
+
     }
 
     async function getVideoUrl(level_id) {
