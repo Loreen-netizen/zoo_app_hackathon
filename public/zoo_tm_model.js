@@ -33,6 +33,48 @@ async function init() {
     }
 }
 
+
+//   async function loop() {
+//         webcam.update(); // update the webcam frame
+//         await predict();
+//         window.requestAnimationFrame(loop);
+//     }
+
+//     // run the webcam image through the image model
+//     async function predict() {
+//         // predict can take in an image, video or canvas html element
+//             const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+// 		const prediction = await model.predict(webcam.canvas);
+
+// 		let highestProb = 0;
+// 		let chocName = "";
+
+// 		prediction.forEach(function(pred){
+//             if (pred.probability > highestProb) {
+//                 highestProb = pred.probability;
+// 				chocName = pred.className;
+// 			}
+// 		});
+
+//         const delayedStoreUserMotion = _.debounce(function(){
+//             storeUserMotion(chocName);
+//         }, 5000);
+
+// 		if (chocName !== "Nothing"){
+
+//             storeUserMotion(chocName);
+
+// 		}
+
+//             drawPose(pose);
+//     }
+
+// ensure that not too many chocolates are added...
+// const  throttledStoreUserMotion= _.throttle(storeUserMotion, 5000);
+
+
+
+
 async function loop(timestamp) {
     webcam.update(); // update the webcam frame
     await predict();
@@ -43,6 +85,7 @@ async function predict() {
     // Prediction #1: run input through posenet
     // estimatePose can take in an image, video or canvas html element
     const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
 
@@ -50,11 +93,22 @@ async function predict() {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         labelContainer.childNodes[i].innerHTML = classPrediction;
-       
+
+        const pred = prediction[i].probability.toFixed(2);
+
+        const pc = prediction[i].className;
+        console.log({ pc, pred });
+
+        if (pc !== 'nothing' && Number(pred) == 1) {
+            
+            storeUserMotion(pc)
+
+        }
+
     }
 
     // finally draw the poses
-    drawPose(pose);
+    drawPose(pose)
     // console.log({pose})
 }
 

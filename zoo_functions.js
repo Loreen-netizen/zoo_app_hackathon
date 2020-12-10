@@ -27,9 +27,33 @@ module.exports = function zooFact(pool) {
     }
 
     async function storeUserMotion(motion) {
-        let storeUserMotionQuery = await pool.query(`INSERT INTO progress(user_id, motion_status, level_act_id ) 
-        VALUES (userId, motion, levelId)`, [userId, motion, levelId])
-        return getVideoUrlQuery.rows;
+        console.log({motion}, ' storeUserMotion');
+        
+        try {
+
+
+            const findMotionForUSerSQL = `select count(*) from progress where user_id = $1 and motion_status = $2`;
+
+            const results = await pool.query(findMotionForUSerSQL, [1, motion]);
+            console.log(results.rows)
+            if (results.rows[0].count == 0) {
+                    let storeUserMotionQuery = await pool.query(`INSERT INTO progress(user_id, motion_status, level_act_id ) 
+        VALUES ($1, $2, $3)`, [1, motion, 1]);
+                return storeUserMotionQuery.rows;
+
+            } else {
+                // update the motion count with 1
+            }
+
+            
+
+
+        } catch (error) {
+            console.log(error);
+            return error
+            
+        }
+
     }
 
     // async function getVideoUrl(level_id) {
