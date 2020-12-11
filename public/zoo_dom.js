@@ -63,8 +63,10 @@ startBtn.addEventListener("click", function() {
             modelPageElem.classList.toggle('hidden')
         }) 
 });
-
+const applause = new Audio("applause.mp3")
 const bell = new Audio("https://raw.githubusercontent.com/codex-academy/chocolate-app/main/public/audio/bell.mp3")
+const error = new Audio("error.mp3")
+
 
 const storeUserMotion = _.throttle(function (motion){
     return axios
@@ -95,6 +97,7 @@ function showMotion() {
     } else {
         currentMotion = "";
         question.innerHTML = "You moved well!";
+        applause.play();
         // play trumpet
     }
 // if(motionCount = 4){

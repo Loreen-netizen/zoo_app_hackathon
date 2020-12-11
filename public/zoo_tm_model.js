@@ -16,10 +16,10 @@ async function init() {
     maxPredictions = model.getTotalClasses();
 
     // Convenience function to setup a webcam
-    const size = 500;
-    const size2 = 450
+    const size = 280;
+    const size2 = 500
     const flip = true; // whether to flip the webcam
-    webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
+    webcam = new tmPose.Webcam(size2, size, flip); // width, height, flip
     await webcam.setup(); // request access to the webcam
     await webcam.play();
     window.requestAnimationFrame(loop);
@@ -101,13 +101,14 @@ async function predict() {
             }
         });
 
-        if (highestProb == 1 && currentMotion === motion) {
-            // bell.play();
+        if (highestProb >= 0.8 && currentMotion === motion) {
+            bell.play();
             console.log({
                 highestProb,
                 motion,
                 currentMotion
             });
+            
 
             storeUserMotion(motion)
                 .then(function () {
@@ -115,6 +116,9 @@ async function predict() {
                 })
         } else {
             // error code here
+
+            // error.play();
+            // startConfetti();
         }
     } 
 
@@ -143,6 +147,8 @@ async function predict() {
     drawPose(pose)
     // console.log({pose})
 }
+
+
 
 function drawPose(pose) {
     if (webcam.canvas) {
